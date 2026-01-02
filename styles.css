@@ -65,7 +65,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 0rem 0rem;
+    padding: 0rem 2rem;
     box-sizing: border-box;
     min-height: 0;
 }
