@@ -128,3 +128,18 @@ section.expanded {
 .section-content ul ul {
     margin-top: 0.3rem;
 }
+
+@media (max-width: 768px) {
+    .entry-header a:not([href^="mailto:"]) {
+        display: none;
+    }
+    
+    .entry-header .comma-separator {
+        display: none;
+    }
+    
+    .entry-header strong.has-link {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}

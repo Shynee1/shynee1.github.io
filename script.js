@@ -17,6 +17,21 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
+document.querySelectorAll('.entry-header').forEach(header => {
+    const link = header.querySelector('a:not([href^="mailto:"])');
+    const title = header.querySelector('strong');
+    
+    if (link && title) {
+        title.classList.add('has-link');
+        
+        title.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                window.open(link.getAttribute('href'), '_blank');
+            }
+        });
+    }
+});
+
 
 window.addEventListener('scroll', () => {
     if (activeSection && !checkVisible(activeSection)) {
