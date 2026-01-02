@@ -7,10 +7,16 @@ document.querySelectorAll('nav a').forEach(link => {
         const targetSection = document.getElementById(targetId);
         
         if (activeSection) {
-            activeSection.classList.remove('expanded');
+            activeSection.removeAttribute('style');
         }
 
-        targetSection.classList.add('expanded');
+        const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        const contentRect = targetSection.querySelector('.section-content').getBoundingClientRect();
+        const padding = viewHeight / 2 - contentRect.height / 2;
+
+        targetSection.style.paddingTop = `${Math.max(padding, 0)}px`;
+        targetSection.style.paddingBottom = `${Math.max(padding, 0)}px`;
+
         activeSection = targetSection;
         
         targetSection.scrollIntoView();
@@ -18,12 +24,26 @@ document.querySelectorAll('nav a').forEach(link => {
 });
 
 window.addEventListener('scroll', () => {
-    if (activeSection && !checkVisible(activeSection)) {
-        activeSection.classList.remove('expanded');
-        activeSection = null;
+    if (activeSection){
+        const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        const contentRect = activeSection.querySelector('.section-content').getBoundingClientRect();
+        const padding = viewHeight / 2 - contentRect.height / 2;
+        const isVisible = checkVisible(activeSection);
+
+        if (contentRect.top < 0 && activeSection.style.paddingTop){
+            activeSection.style.paddingTop = '';
+            window.scrollBy(0, -padding);
+        }
+        if (contentRect.bottom - viewHeight >= 0 && activeSection.style.paddingBottom) {
+            activeSection.style.paddingBottom = '';
+        }
+       
+        if (!isVisible || activeSection.style.length === 0){
+            activeSection.removeAttribute('style');
+            activeSection = null;
+        }
     }
 });
-
 
 function checkVisible(elm) {
   const rect = elm.getBoundingClientRect();
