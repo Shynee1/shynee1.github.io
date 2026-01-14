@@ -8,14 +8,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-}
-
-.landing {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
     width: 100%;
 }
@@ -58,73 +51,4 @@ nav a span {
 nav .dot {
     margin: 0 0.3rem;
     text-decoration: none;
-}
-
-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0rem 2rem;
-    box-sizing: border-box;
-    min-height: 0;
-}
-
-section.expanded-top {
-    padding-top: 8rem;
-}
-
-section.expanded-bottom {
-    padding-bottom: 8rem;
-}
-
-.section-content {
-    max-width: 800px;
-    width: 100%;
-}
-
-.section-content h2 {
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #000;
-    padding-bottom: 0.5rem;
-}
-
-.section-content h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.entry {
-    margin-bottom: 1.5rem;
-}
-
-.entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.5rem;
-}
-
-.entry-title {
-    font-style: italic;
-    margin-top: 0.2rem;
-}
-
-.entry-date {
-    font-style: italic;
-    white-space: nowrap;
-    margin-left: 1rem;
-}
-
-.section-content ul {
-    margin: 0.5rem 0;
-    padding-left: 1.5rem;
-}
-
-.section-content li {
-    margin-bottom: 0.3rem;
-}
-
-.section-content ul ul {
-    margin-top: 0.3rem;
 }
